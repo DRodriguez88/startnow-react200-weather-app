@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const defaultState = {
     single: {},
     history: []
@@ -11,7 +13,7 @@ export default function historyReducer( state = defaultState, action ) {
             return {
                 ...state,
                 single: payload.data,
-                history: [...state.history, payload.data.name]
+                history: _.uniq([...state.history, payload.data.name])
             }
         }        
         default: {
