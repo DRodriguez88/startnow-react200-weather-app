@@ -8,10 +8,10 @@ export default class SearchHistory extends React.Component {
         super(props)
         this.clickHandle = this.clickHandle.bind(this)
     }
-    clickHandle(e) {
-        console.log(e.target.value);
-        const { dispatch, city } = this.props;
-        dispatch(getWeather(e.target.value))
+    clickHandle(e, city) {
+        e.preventDefault();
+        const { dispatch } = this.props;
+        dispatch(getWeather(city))
     }
 
     render(){
